@@ -9,14 +9,19 @@ class QuoteView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<QuoteViewModel>.reactive(
+      onModelReady: (model) => model.fetchQuote(),
       viewModelBuilder: () => QuoteViewModel(),
       builder: (context, model, child) {
         return Scaffold(
-          body: Center(
-            child: Text(
-              'Quote View',
-            ),
-          ),
+          body: model.isBusy
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              : Center(
+                  child: Text(
+                    model.quoteResponse.message,
+                  ),
+                ),
         );
       },
     );

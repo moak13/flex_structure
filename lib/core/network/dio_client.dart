@@ -53,21 +53,10 @@ class DioClient {
   }
 
   Future<Options> _getDioHeader() async {
-    // final token = await TokenManager.getAccessToken();
-    final token = '';
-    if (token != null) {
-      return Options(
-        headers: {
-          HttpHeaders.connectionHeader: 'keep-alive',
-          HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
-          HttpHeaders.authorizationHeader: 'Bearer $token',
-        },
-      );
-    }
     return Options(
       headers: {
-        HttpHeaders.connectionHeader: 'keep-alive',
-        HttpHeaders.contentTypeHeader: 'application/json; charset=UTF-8',
+        'x-rapidapi-host': 'ajith-messages.p.rapidapi.com',
+        'x-rapidapi-key': '97e61ab42cmshd978ed66e241013p142adbjsncc6d58aac614'
       },
     );
   }

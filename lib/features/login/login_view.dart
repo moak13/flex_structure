@@ -12,9 +12,24 @@ class LoginView extends StatelessWidget {
       viewModelBuilder: () => LoginViewModel(),
       builder: (context, model, child) {
         return Scaffold(
-          body: Center(
-            child: Text(
-              'Login View',
+          body: SafeArea(
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Login View'),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  RaisedButton(
+                    onPressed: () {
+                      model.moveToQuoteView();
+                    },
+                    child: Text('Quote View'),
+                  ),
+                ],
+              ),
             ),
           ),
         );

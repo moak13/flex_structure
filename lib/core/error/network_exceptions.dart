@@ -3,6 +3,7 @@ import 'dart:io';
 
 // import 'package:citizen_mata_mobile/core/model/error_response.dart';
 import 'package:dio/dio.dart';
+import 'package:flex_structure/core/models/error_response.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 // import 'package:stacked_services/stacked_services.dart';
@@ -54,12 +55,8 @@ abstract class NetworkExceptions with _$NetworkExceptions {
         // ErrorResponse.fromJson(response.data).message);
         break;
       case 401:
-        // Future.delayed(Duration(milliseconds: 100), () {
-        //   final _snackbarService = locator<SnackbarService>();
-        //   final _navigationService = locator<NavigationService>();
-        //   _navigationService.clearStackAndShow(Routes.login_view);
-        //   _snackbarService.showSnackbar(message: 'Service Timeout');
-        // });
+        return NetworkExceptions.defaultError(
+            ErrorResponse.fromJson(response.data).message);
         return null;
       case 403:
         return NetworkExceptions.unauthorizedRequest();

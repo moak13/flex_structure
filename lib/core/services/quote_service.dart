@@ -13,6 +13,7 @@ class QuoteServiceImpl extends BaseService implements QuoteService {
     return get<QuoteResponse>(
       url: AccessPoint.getMessage,
       converter: (json) => QuoteResponse.fromJson(json),
+      queryParameters: {"Category": "Love"},
     );
   }
 }
