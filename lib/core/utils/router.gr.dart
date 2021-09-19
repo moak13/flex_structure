@@ -10,6 +10,7 @@ import 'package:auto_route/auto_route.dart';
 
 import '../../features/home/home_view.dart';
 import '../../features/login/login_view.dart';
+import '../../features/profile/profile_view.dart';
 import '../../features/signup/signup_view.dart';
 import '../../features/splash/splash_view.dart';
 
@@ -18,11 +19,13 @@ class Routes {
   static const String login_view = '/login-view';
   static const String signup_view = '/signup-view';
   static const String home_view = '/home-view';
+  static const String profile_view = '/profile-view';
   static const all = <String>{
     splashView,
     login_view,
     signup_view,
     home_view,
+    profile_view,
   };
 }
 
@@ -34,6 +37,7 @@ class Router extends RouterBase {
     RouteDef(Routes.login_view, page: LoginView),
     RouteDef(Routes.signup_view, page: SignupView),
     RouteDef(Routes.home_view, page: HomeView),
+    RouteDef(Routes.profile_view, page: ProfileView),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -59,6 +63,12 @@ class Router extends RouterBase {
     HomeView: (data) {
       return buildAdaptivePageRoute<dynamic>(
         builder: (context) => const HomeView(),
+        settings: data,
+      );
+    },
+    ProfileView: (data) {
+      return buildAdaptivePageRoute<dynamic>(
+        builder: (context) => const ProfileView(),
         settings: data,
       );
     },

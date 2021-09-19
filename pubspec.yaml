@@ -24,6 +24,9 @@ dependencies:
   flutter:
     sdk: flutter
   auto_route: ^0.6.9
+  dio: ^3.0.10
+  dio_http_cache: ^0.2.11
+  freezed: ^0.12.7
   stacked: ^1.9.5
   stacked_services: ^0.7.2
   get_it: ^5.0.6
